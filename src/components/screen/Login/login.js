@@ -22,14 +22,14 @@ const Login = (props)=>{
         const user =JSON.parse(localStorage.getItem("userData"));
         if(user){
             var currentTime = Date.now();
-            if((currentTime - user.time) > 3600000){
+            if((currentTime - user.time) > 3600000){   //1 hr
                 userLogout();
             } else{
                 setlogin(user.userName);
             }
         }
 
-    });
+    },[]);
 
     const onloginClick = ()=>{
         event.preventDefault();
@@ -41,13 +41,10 @@ const Login = (props)=>{
             time: date,
             userName: credentials.username1
         };
-        if(userName === credentials.username1 && password === credentials.username1){
+        if((userName === credentials.username1 && password === credentials.username1) || (userName === credentials.username2 && password === credentials.username2)){
             setlogin(userName);
             localStorage.setItem("userData", JSON.stringify(objUser));
-        } else if(userName === credentials.username2 && password === credentials.username2){
-            setlogin(userName);
         }
-
 
     };
     return (

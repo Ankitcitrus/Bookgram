@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import {loginAction11, logoutAction} from './redux/login.actions';
+import {loginAction, logoutAction} from './redux/login.actions';
 import Login from './login';
 
 const mapStateToProps = state => ({
@@ -8,7 +8,7 @@ const mapStateToProps = state => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-    setlogin: (userName) => dispatch(loginAction11(userName)),
+    setlogin: (userName) => dispatch(loginAction(userName)),
     userLogout: () => dispatch(logoutAction())
 });
 

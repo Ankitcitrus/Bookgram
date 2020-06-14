@@ -17,7 +17,7 @@
     "@babel/preset-react": "^7.10.1",
     "babel-loader": "^8.1.0",
     "fs": "0.0.1-security",
-    "libgen": "^2.0.1",
+    "libgen": "1.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.0",

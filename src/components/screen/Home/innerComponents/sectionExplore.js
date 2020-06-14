@@ -1,6 +1,5 @@
 import React, {useState}  from 'react';
-import styled from "styled-components";
-const libgen = require('libgen');
+import libgen from "libgen";
 
 
 
@@ -20,9 +19,24 @@ const SectionExplore = (props)=>{
 
     };
 
-    const onSearchClick = async ()=>{
-        const urlString = await search();
-        alert(`${urlString} is currently fastest`)
+    const onSearchClick = ()=>{
+        libgen.mirror((urlString)=>{
+            console.log(`${urlString} is currently fastest`)
+        })
+
+        const options = {
+            mirror: 'http://gen.lib.rus.ec',
+            query: 'dogs',
+            count: 5,
+            sort_by: 'year',
+            reverse: true
+        };
+        //const urlString = await libgen.search();
+        libgen.search(options, (err, data) => {
+            if (err) {
+            } else {
+            }
+        });
     }
 
     return (
